@@ -11,6 +11,7 @@ body {
     background-color: #1a1a1a;
     padding: 20px;
     text-align: center;
+    margin: none;
   }
   
   img {
@@ -92,8 +93,15 @@ body {
   
   /* Media Queries */
   @media (max-width: 768px) {
-    header nav ul {
-      flex-direction: column;
+
+    #about {
+      margin-top: 100px;
+    }
+    
+
+
+    header nav ul{
+      flex-direction: column; 
     }
   
     section h2 {
