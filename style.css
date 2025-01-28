@@ -6,6 +6,18 @@ body {
     line-height: 1.5;
   }
   
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(1, 10, 122, 0.1);
+  }
+  .fade-in {
+    animation: fadeIn 2s ease-in;
+    }
+  
+   @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; } }
+
   /* Header Adjustments */
   header {
     background-color: #1a1a1a;
@@ -90,12 +102,12 @@ body {
     color: #aaa;
   }
 
-  
   /* Media Queries */
   @media (max-width: 768px) {
 
-    
-    
+  header div {
+    padding-block: 2px;
+  }    
 
 
     header nav ul{

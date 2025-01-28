@@ -22,17 +22,50 @@
     }
   </style>
   <body class="bg-black text-white font-sans">
-    <header class="bg-transparent py-5 fixed w-full top-0 left-0">
-      <div
-        id="blurring"
-        class="bg-gray/10 backdrop-blur-md w-full py-5 mt-0 left-0"
-      >
-        <div class="container mx-auto flex justify-between w-full items-center">
-          <h1 class="text-3xl font-bold">ALIEN ZEUS</h1>
-          <nav>
-            <div>
-              <ul class="hidden nav-items md:flex space-x-6">
-                <li><a href="#about" class="hover:text-gray-400">About</a></li>
+    <header class="fixed w-full top-0 z-50 glass-effect px-6 py-4">
+      <div class="container mx-auto flex justify-between w-full items-center">
+        <h1 class="text-3xl font-bold">ALIEN ZEUS</h1>
+        <nav>
+          <div>
+            <ul class="hidden nav-items md:flex space-x-6">
+              <li><a href="#about" class="hover:text-gray-400">About</a></li>
+              <li>
+                <a href="#projects" class="hover:text-gray-400">Projects</a>
+              </li>
+              <li>
+                <a href="#experience" class="hover:text-gray-400">Experience</a>
+              </li>
+              <li>
+                <a href="#skills" class="hover:text-gray-400">Skills</a>
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-gray-400">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="md:hidden">
+            <button id="menu-button" class="text-gray-700 focus:outline-none">
+              <!-- Hamburger Icon -->
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+            <div id="mobile-menu" class="md:hidden hidden">
+              <ul class="flex flex-col space-y-2 px-4 py-2">
+                <li>
+                  <a href="#about" class="hover:text-gray-400">About</a>
+                </li>
                 <li>
                   <a href="#projects" class="hover:text-gray-400">Projects</a>
                 </li>
@@ -49,53 +82,13 @@
                 </li>
               </ul>
             </div>
-            <div class="md:hidden">
-              <button id="menu-button" class="text-gray-700 focus:outline-none">
-                <!-- Hamburger Icon -->
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  ></path>
-                </svg>
-              </button>
-              <div id="mobile-menu" class="md:hidden hidden">
-                <ul class="flex flex-col space-y-2 px-4 py-2">
-                  <li>
-                    <a href="#about" class="hover:text-gray-400">About</a>
-                  </li>
-                  <li>
-                    <a href="#projects" class="hover:text-gray-400">Projects</a>
-                  </li>
-                  <li>
-                    <a href="#experience" class="hover:text-gray-400"
-                      >Experience</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#skills" class="hover:text-gray-400">Skills</a>
-                  </li>
-                  <li>
-                    <a href="#contact" class="hover:text-gray-400">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </div>
     </header>
 
     <section id="about" class="py-16 mt-5 bg-black">
-      <div class="flex items-center mt-14 justify-center">
+      <div class="fade-in flex items-center mt-14 justify-center">
         <img src="me (1).png" alt="Alien Zeus" width="350px" height="350px" />
       </div>
       <div class="container mx-auto px-4 py-10 text-center">
