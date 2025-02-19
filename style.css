@@ -125,6 +125,10 @@ body {
     form input, form textarea, form button {
       font-size: 0.8rem;
     }
+
+    footer {
+      font-size: small;
+    }
   }
   
   @media (max-width: 480px) {
