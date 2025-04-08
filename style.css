@@ -154,3 +154,21 @@ body {
     }
   }
   
+
+  h1 {
+    font-size: 2rem;
+    background: url('final-bg-gradient.jpg') center;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent;
+    animation: animate 10s linear infinite;
+    text-align: center;
+    margin-top: 70px;
+  }
+  
+  @keyframes animate {
+    to {
+      background-position-x: -200px;
+    }
+  }
