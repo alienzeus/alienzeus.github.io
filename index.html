@@ -28,70 +28,46 @@
     }
   </style>
   <body class="bg-black text-white font-sans">
-    <header class="fixed w-full top-0 z-50 glass-effect px-6 py-4">
-      <div class="container mx-auto flex justify-between w-full items-center">
-        <a href="/"><h1 class="text-3xl font-bold">ALIEN ZEUS</h1></a>
-        <nav>
-          <div>
-            <ul class="hidden nav-items md:flex space-x-6">
-              <li><a href="#about" class="hover:text-gray-400">About</a></li>
-              <li>
-                <a href="#projects" class="hover:text-gray-400">Projects</a>
-              </li>
-              <li>
-                <a href="#experience" class="hover:text-gray-400">Experience</a>
-              </li>
-              <li>
-                <a href="#skills" class="hover:text-gray-400">Skills</a>
-              </li>
-              <li>
-                <a href="#contact" class="hover:text-gray-400">Contact</a>
-              </li>
-            </ul>
-          </div>
-          <div class="md:hidden">
-            <button id="menu-button" class="text-gray-700 focus:outline-none">
-              <!-- Hamburger Icon -->
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
-              </svg>
-            </button>
-            <div id="mobile-menu" class="md:hidden hidden">
-              <ul class="flex flex-col space-y-2 px-4 py-2">
-                <li>
-                  <a href="#about" class="hover:text-gray-400">About</a>
-                </li>
-                <li>
-                  <a href="#projects" class="hover:text-gray-400">Projects</a>
-                </li>
-                <li>
-                  <a href="#experience" class="hover:text-gray-400"
-                    >Experience</a
-                  >
-                </li>
-                <li>
-                  <a href="#skills" class="hover:text-gray-400">Skills</a>
-                </li>
-                <li>
-                  <a href="#contact" class="hover:text-gray-400">Contact</a>
-                </li>
+    <div class="fixed">
+      <header class="fixed w-full top-0 z-50 glass-effect px-6 py-4">
+        <div class="container mx-auto flex justify-between w-full items-center">
+          <a href="/"><h1 class="text-3xl font-bold">ALIEN ZEUS</h1></a>
+          <nav>
+            <div>
+              <ul class="hidden nav-items md:flex space-x-6">
+                <li><a href="#about" class="hover:text-gray-400">About</a></li>
+                <li><a href="#projects" class="hover:text-gray-400">Projects</a></li>
+                <li><a href="#experience" class="hover:text-gray-400">Experience</a></li>
+                <li><a href="#skills" class="hover:text-gray-400">Skills</a></li>
+                <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
               </ul>
             </div>
-          </div>
-        </nav>
+            <div class="md:hidden">
+              <button id="menu-button" class="text-gray-700 focus:outline-none">
+                <svg class="w-8 h-8 hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path class="top-bar" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+                  <path class="middle-bar" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+                  <path class="bottom-bar" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
+                </svg>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+    
+      <!-- Simplified Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden fixed inset-0 z-40 hidden bg-black bg-opacity-70 backdrop-blur-sm">
+        <div class="absolute right-0 top-20 w-64 h-full bg-gray-900">
+          <ul class="flex flex-col space-y-6 px-6 py-8 text-right">
+            <li><a href="#about" class="block py-2 text-xl hover:text-gray-400">About</a></li>
+            <li><a href="#projects" class="block py-2 text-xl hover:text-gray-400">Projects</a></li>
+            <li><a href="#experience" class="block py-2 text-xl hover:text-gray-400">Experience</a></li>
+            <li><a href="#skills" class="block py-2 text-xl hover:text-gray-400">Skills</a></li>
+            <li><a href="#contact" class="block py-2 text-xl hover:text-gray-400">Contact</a></li>
+          </ul>
+        </div>
       </div>
-    </header>
+    </div>
 
     <section id="about" class="py-16 mt-5 bg-black">
       <div class="fade-in flex items-center mt-14 justify-center">
@@ -200,11 +176,9 @@
             Current)
           </p>
           <p>
-            APAR'S is a service provider company for Bangladesh EdTech Market.
-            They serve the largest edtech company in Bangladesh named ACS Group
-            and their offline sister company ACHIEVE. I work as a little part of
-            their operations.
-          </p>
+            <b>AGS Compressed Note</b> is a renowned platform for high-quality study materials.  
+            What’s my role here? I design, develop, and enhance user-friendly, responsive webpages for ACN products and other related pages — crafting clean, modern, and maintainable code that improves both usability and performance. As a remote team member, I contribute to creating seamless digital experiences that support thousands of students in their learning journey.          
+        </p>
           
           <hr class="my-4" />
 
@@ -381,7 +355,7 @@
         </p>
       </div>
     </footer>
-    <script>
+    <!-- <script>
       // JavaScript to toggle the mobile menu
       const menuButton = document.getElementById("menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
@@ -389,6 +363,8 @@
       menuButton.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden");
       });
-    </script>
+    </script> -->
+    <script src="script.js"></script>
   </body>
+
 </html>

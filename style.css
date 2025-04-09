@@ -172,3 +172,71 @@ body {
       background-position-x: -200px;
     }
   }
+
+
+
+/* Hamburger to X animation */
+.hamburger-icon.active .top-bar {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-icon.active .middle-bar {
+  opacity: 0;
+}
+
+.hamburger-icon.active .bottom-bar {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.hamburger-icon path {
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* Menu animations */
+#mobile-menu {
+  transition: opacity 0.3s ease;
+}
+
+#mobile-menu:not(.active) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#mobile-menu.active {
+  opacity: 1;
+}
+
+#mobile-menu ul li {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease;
+}
+
+#mobile-menu.active ul li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Sequential item animation */
+#mobile-menu.active ul li:nth-child(1) { transition-delay: 0.1s; }
+#mobile-menu.active ul li:nth-child(2) { transition-delay: 0.2s; }
+#mobile-menu.active ul li:nth-child(3) { transition-delay: 0.3s; }
+#mobile-menu.active ul li:nth-child(4) { transition-delay: 0.4s; }
+#mobile-menu.active ul li:nth-child(5) { transition-delay: 0.5s; }
+
+/* Reduce font size of nav items */
+#mobile-menu ul li a {
+  font-size: 1rem; /* Changed from text-xl */
+}
+
+/* Make side navbar narrower */
+#mobile-menu .absolute {
+  width: 30vw; /* Changed from w-64 (16rem) to viewport width based */
+  max-width: 280px; /* Maximum width */
+}
+
+/* Adjust menu positioning */
+/* #mobile-menu {
+  top: 4.5rem; /* Adjusted from top-20 (5rem) 
+} */
