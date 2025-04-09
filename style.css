@@ -213,6 +213,10 @@ body {
   transition: all 0.3s ease;
 }
 
+#mobile-menu ul li a:hover{
+  background: #39224e;
+}
+
 #mobile-menu.active ul li {
   opacity: 1;
   transform: translateX(0);
@@ -232,7 +236,7 @@ body {
 
 /* Make side navbar narrower */
 #mobile-menu .absolute {
-  width: 30vw; /* Changed from w-64 (16rem) to viewport width based */
+  width: 42vw; /* Changed from w-64 (16rem) to viewport width based */
   max-width: 280px; /* Maximum width */
 }
 
