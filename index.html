@@ -1,370 +1,946 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alien Zeus</title>
-    <link rel="icon" href="favicon.ico" type="img/ico" />
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Zeus | Modern Portfolio</title>
+    <link rel="icon" href="favicon.ico" type="img/ico">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-    * {
-      font-family: Poppins;
-    }
-  </style>
-  <body class="bg-black text-white font-sans">
-    <div class="fixed">
-      <header class="fixed w-full top-0 z-50 glass-effect px-6 py-4">
-        <div class="container mx-auto flex justify-between w-full items-center">
-          <a href="/"><h1 class="text-3xl font-bold">ALIEN ZEUS</h1></a>
-          <nav>
-            <div>
-              <ul class="hidden nav-items md:flex space-x-6">
-                <li><a href="#about" class="hover:text-gray-400">About</a></li>
-                <li><a href="#projects" class="hover:text-gray-400">Projects</a></li>
-                <li><a href="#experience" class="hover:text-gray-400">Experience</a></li>
-                <li><a href="#skills" class="hover:text-gray-400">Skills</a></li>
-                <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
-              </ul>
-            </div>
-            <div class="md:hidden">
-              <button id="menu-button" class="text-gray-700 focus:outline-none">
-                <svg class="w-8 h-8 hamburger-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path class="top-bar" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
-                  <path class="middle-bar" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
-                  <path class="bottom-bar" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
-                </svg>
-              </button>
-            </div>
-          </nav>
-        </div>
-      </header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-      <!-- Simplified Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden fixed inset-0 z-40 hidden bg-black bg-opacity-70 backdrop-blur-sm">
-        <div class="absolute right-0 top-20 w-64 h-full bg-gray-900">
-          <ul class="flex flex-col space-y-6 px-6 py-8 text-right">
-            <li><a href="#about" class="block py-2 text-xl hover:text-gray-400">About</a></li>
-            <li><a href="#projects" class="block py-2 text-xl hover:text-gray-400">Projects</a></li>
-            <li><a href="#experience" class="block py-2 text-xl hover:text-gray-400">Experience</a></li>
-            <li><a href="#skills" class="block py-2 text-xl hover:text-gray-400">Skills</a></li>
-            <li><a href="#contact" class="block py-2 text-xl hover:text-gray-400">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a1a;
+            --accent-color: #00d4ff;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --grid-color: rgba(0, 212, 255, 0.1);
+        }
+        
+        [data-theme="light"] {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8fafc;
+            --accent-color: #2563eb;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --grid-color: rgba(37, 99, 235, 0.1);
+        }
+        
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .animated-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent-color), rgba(0, 212, 255, 0.3));
+            filter: blur(40px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-orb:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .floating-orb:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="light"] .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .skill-card:hover::before {
+            left: 100%;
+        }
+        
+        .floating-skill {
+            animation: floatSkill 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatSkill {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--accent-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover::after {
+            opacity: 0.1;
+        }
+        
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: var(--secondary-bg);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="light"] .theme-toggle::before {
+            transform: translateX(26px);
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
+            transform-origin: 0%;
+            z-index: 9999;
+        }
+        
+        .hero-text {
+            background: linear-gradient(45deg, var(--accent-color), #ff6b6b, #4ecdc4);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .typing-animation::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: parallaxMove 15s linear infinite;
+        }
+        
+        @keyframes parallaxMove {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1.1); }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .floating-orb {
+                display: none;
+            }
+            
+            .animated-grid {
+                background-size: 30px 30px;
+            }
+        }
+        
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
 
-    <section id="about" class="py-16 mt-5 bg-black">
-      <div class="fade-in flex items-center mt-14 justify-center">
-        <img src="me (1).png" alt="Alien Zeus" width="350px" height="350px" />
-      </div>
-      <div class="container mx-auto px-4 py-10 text-center">
-        <h2 class="text-4xl font-bold mb-4">About Me</h2>
-        <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-          Hello! I'm a passionate developer with a knack for creating dynamic,
-          user-friendly web applications. I thrive on solving complex problems
-          and constantly seek to enhance my skills and knowledge.
-        </p>
-
-        <button
-          class="bg-blue-600 text-white py-2 px-4 ml-1 rounded-lg hover:bg-blue-700"
-        >
-          <a href="Alien Zeus - Resume.pdf" download="">Learn More ↓</a>
-        </button>
-      </div>
-    </section>
-
-    <section id="projects" class="py-16 bg-gray-900">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-8">Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-            <img src="2.jpg" alt="Project 1" class="w-full" />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Zakat Diary</h3>
-              <p class="text-gray-400">
-                I made a Responsive front end landing page for an e-commerce
-                Bookshop.
-                <a href="https://zakat-diary.vercel.app/"><u>Click Here</u></a>
-                to explore it.
-              </p>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-grid"></div>
+    <div class="parallax-bg"></div>
+    
+    <!-- Floating Orbs -->
+    <div class="floating-orb"></div>
+    <div class="floating-orb"></div>
+    <div class="floating-orb"></div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold code-font hero-text">
+                &lt;ALIEN ZEUS /&gt;
             </div>
-          </div>
-          <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-            <img
-              src="1.jpg"
-              alt="Project 2"
-              class="w-full"
-              height="300px"
-              width="300px"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">DABAA Billing System</h3>
-              <p class="text-gray-400">
-                I made a billing App as a practice project. I used JavaScript,
-                HTML & CSS. User can use it to make a bill for his business.
-                <a href="https://dabaa.zoomenterprisebd.com/"
-                  ><u>Click Here</u></a
-                >
-                to explore the ultimate feature of it. Use '2024' as your login
-                PIN. If you're a shopkeeper and want to digitalize your billing
-                system, you can order a billing app for your shop.
-              </p>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link hover:text-[var(--accent-color)]">About</a>
+                <a href="#projects" class="nav-link hover:text-[var(--accent-color)]">Projects</a>
+                <a href="#experience" class="nav-link hover:text-[var(--accent-color)]">Experience</a>
+                <a href="#skills" class="nav-link hover:text-[var(--accent-color)]">Skills</a>
+                <a href="#contact" class="nav-link hover:text-[var(--accent-color)]">Contact</a>
+                
+                <!-- Theme Toggle -->
+                <div class="theme-toggle" id="themeToggle"></div>
             </div>
-          </div>
-          <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-            <img src="3.jpg" alt="Project 3" class="w-full" />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold mb-2">Achieve Operations</h3>
-              <p class="text-gray-400">
-                I developed a OneStop portal to simplify my daily tasks and
-                reduce the effort of managing links and credentials. Built using
-                CSS and HTML, this portal offers a clean, user-friendly
-                interface tailored to my needs. However, since it involves
-                private company resources, I cannot share the links or further
-                details due to confidentiality guidelines. This project
-                highlights how basic web development can boost productivity and
-                organization.
-              </p>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center space-x-4">
+                <div class="theme-toggle" id="themeToggleMobile"></div>
+                <button id="mobileMenuBtn" class="text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <section id="experience" class="py-16 bg-black">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">Experience</h2>
-        <div class="mt-10 text-gray-400 text-lg max-w-3xl mx-auto">
-          
-          <div class="flex items-center justify-center">
-            <img src="apars.png" alt="APAR'S" class="apars-logo" width="170px">
-          </div>
-          <p>
-            <strong>Jr. Executive (Operations)</strong> at APAR'S (2024 -
-            Current)
-          </p>
-          <p>
-            APAR'S is a service provider company for Bangladesh EdTech Market.
-            They serve the largest edtech company in Bangladesh named ACS Group
-            and their offline sister company ACHIEVE. I work as a little part of
-            their operations.
-          </p>
-
-          <hr class="my-4" />
-
-          <div class="flex items-center justify-center">
-            <img src="acn.png" alt="ASG Compressed Note" class="apars-logo" width="230px">
-          </div>
-          <p>
-            <strong>Frontend Developer (Intern)</strong> at ASG Compressed Note (2025 -
-            Current)
-          </p>
-          <p>
-            <b>AGS Compressed Note</b> is a renowned platform for high-quality study materials.  
-            What’s my role here? I design, develop, and enhance user-friendly, responsive webpages for ACN products and other related pages — crafting clean, modern, and maintainable code that improves both usability and performance. As a remote team member, I contribute to creating seamless digital experiences that support thousands of students in their learning journey.          
-        </p>
-          
-          <hr class="my-4" />
-
-          <div class="flex items-center justify-center">
-            <img src="achieve.png" alt="ACHIEVE" class="py-8 apars-logo" width="135px">
-          </div>
-          <p>
-            <strong>Executive (Central Operations)</strong> at ACHIEVE Exam Center (2024 -
-            Current)
-          </p>
-          <p>
-            APAR'S is a service provider company for Bangladesh EdTech Market.
-            They serve the largest edtech company in Bangladesh named ACS Group
-            and their offline sister company ACHIEVE. I work as a little part of
-            their operations.
-          </p>
-          
-          <hr class="my-4" />
-
-          <div class="flex items-center justify-center">
-            <img src="ezionic.png" alt="Ezionic" class="ezionic-logo" width="150px">
-          </div>
-          <p>
-            <strong>Operations Executive</strong> at Ezionic (2025 -
-            Current)
-          </p>
-          <p>
-            Ezionic is a marketing agency based in Dhaka, Bangladesh, offering a range of services to its clients. 
-            FACEBOOK
-             They have developed educational platforms such as RA Physics and College Peek, providing high-quality study materials and 24/7 Q&A services to students preparing for admission tests. 
-            RA PHYSICS
-            COLLEGE PEAK
-             Additionally, Ezionic maintains an active presence on social media platforms like Facebook and Instagram, engaging with their audience and sharing updates.
-          </p>
-          <hr class="my-4" />
-          <div class="flex items-center justify-center">
-            <img src="ACS W.png" alt="ACS" class="p-4 acs-logo" width="120px">
-          </div>
-          <p>
-            <strong>Freelance Typist & Proofreader</strong> at ACS Group (2023 -
-            2025)
-          </p>
-          <p>
-            ACS Group is the largest edtech in Bangladesh and the fastest
-            growing edtech in South Asia. I worked as a freelance typist and
-            proofreader to contribute to their content team.
-          </p>
-          <hr class="my-4" />
-          <div class="flex items-center justify-center">
-            <img src="dabaa.png" alt="DABAA" class="py-2 dabaa-logo" width="100px">
-          </div>
-          <p>
-            <strong>Founder & Chief Executive Officer (CEO) </strong> at DABAA
-            (2024 - Current)
-          </p>
-          <p>
-            DABAA is a multiservices startup in Bangladesh. We served at least
-            20 small businesses and starting edtechs. We provide services like
-            Online class slide designing, Practice sheet typing and proofreading
-            (both printable & online version), Graphics Designing, Web Desiging
-            and Front End Responsive Development.
-          </p>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 glass-effect rounded-lg p-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="nav-link hover:text-[var(--accent-color)]">About</a>
+                <a href="#projects" class="nav-link hover:text-[var(--accent-color)]">Projects</a>
+                <a href="#experience" class="nav-link hover:text-[var(--accent-color)]">Experience</a>
+                <a href="#skills" class="nav-link hover:text-[var(--accent-color)]">Skills</a>
+                <a href="#contact" class="nav-link hover:text-[var(--accent-color)]">Contact</a>
+            </div>
         </div>
-      </div>
-    </section>
-
-    <section id="skills" class="py-16 bg-gray-900">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">Skills</h2>
-        <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-gray-400"
-        >
-          <div class="p-4 bg-gray-800 rounded-lg">HTML</div>
-          <div class="p-4 bg-gray-800 rounded-lg">CSS</div>
-          <div class="p-4 bg-gray-800 rounded-lg">C & C++, JavaScript</div>
-          <div class="p-4 bg-gray-800 rounded-lg">MS Office Advance</div>
-          <div class="p-4 bg-gray-800 rounded-lg">Google service tools</div>
-          <div class="p-4 bg-gray-800 rounded-lg">Tailwind CSS</div>
-          <div class="p-4 bg-gray-800 rounded-lg">Git & GitHub</div>
-          <div class="p-4 bg-gray-800 rounded-lg">Project Management</div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="text-center z-10 px-6">
+            <div class="mb-8">
+                <img src="me (1).png" alt="Alien Zeus" class="w-40 h-40 mx-auto rounded-full border-4 border-[var(--accent-color)] shadow-2xl">
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 hero-text">
+                ALIEN ZEUS
+            </h1>
+            
+            <div class="text-2xl md:text-3xl mb-8 code-font typing-animation">
+                Full Stack Developer
+            </div>
+            
+            <p class="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-12">
+                Crafting digital experiences with modern technologies and innovative solutions. 
+                Passionate about creating scalable applications that make a difference.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="px-8 py-4 bg-[var(--accent-color)] text-white rounded-full font-semibold hover:bg-opacity-80 transition-all transform hover:scale-105">
+                    View My Work
+                </a>
+                <a href="Alien Zeus - Resume.pdf" download class="px-8 py-4 border-2 border-[var(--accent-color)] text-[var(--accent-color)] rounded-full font-semibold hover:bg-[var(--accent-color)] hover:text-white transition-all transform hover:scale-105">
+                    Download Resume
+                </a>
+            </div>
         </div>
-      </div>
     </section>
-
-    <section id="contact" class="py-16 bg-black">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">Contact Me</h2>
-        <p class="text-gray-400 text-lg mb-6">
-          I'd love to hear from you! Let's connect and create something amazing
-          together.
-        </p>
-        <form
-          name="form"
-          id="form"
-          action="https://formspree.io/f/mnnjqqgv"
-          method="POST"
-          class="max-w-xl mx-auto"
-        >
-          <div class="mb-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-              required
-            />
-          </div>
-          <div class="mb-4">
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-              required
-            />
-          </div>
-          <div class="mb-4">
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-              required
-            ></textarea>
-          </div>
-          <div class="button flex">
-            <button
-              name="reset"
-              type="reset"
-              class="bg-red-600 text-white py-2 px-4 mr-1 rounded-lg hover:bg-red-700"
-            >
-              Clear
-            </button>
-            <button
-              name="submit"
-              type="submit"
-              class="bg-blue-600 text-white py-2 px-4 ml-1 rounded-lg hover:bg-blue-700"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
-        <div class="mt-10 space-x-2">
-          <a target="_blank" href="https://www.facebook.com/alienzeus/" class="text-3xl text-white hover:text-[#C8ACD6]"
-            ><i class="fab fa-facebook"></i
-          ></a>
-          <a target="_blank" href="https://wa.me/+8801710741250" class="text-3xl text-white hover:text-[#C8ACD6]"
-            ><i class="fab fa-whatsapp"></i
-          ></a>
-          <a target="_blank" href="https://www.youtube.com/@alienzeus/" class="text-3xl text-white hover:text-[#C8ACD6]"
-            ><i class="fab fa-youtube"></i
-          ></a>
-          <a target="_blank" href="https://x.com/moyurponkhy" class="text-3xl text-white hover:text-[#C8ACD6]"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a target="_blank" href="https://www.linkedin.com/in/alienzeus/" class="text-3xl text-white hover:text-[#C8ACD6]"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a target="_blank" href="https://www.github.com/alienzeus" class="text-3xl text-white hover:text-[#C8ACD6]"
-            ><i class="fab fa-github"></i
-          ></a>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 hero-text">About Me</h2>
+                <div class="w-24 h-1 bg-[var(--accent-color)] mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-[var(--accent-color)]">Who I Am</h3>
+                    <p class="text-[var(--text-secondary)] leading-relaxed mb-6">
+                        I'm a passionate Full Stack Developer with expertise in modern web technologies. 
+                        I love turning complex problems into simple, beautiful, and intuitive solutions.
+                    </p>
+                    <p class="text-[var(--text-secondary)] leading-relaxed mb-6">
+                        With experience in both frontend and backend development, I create scalable 
+                        applications that provide exceptional user experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-4 py-2 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-[var(--accent-color)] text-sm">Problem Solver</span>
+                        <span class="px-4 py-2 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-[var(--accent-color)] text-sm">Team Player</span>
+                        <span class="px-4 py-2 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-[var(--accent-color)] text-sm">Continuous Learner</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-[var(--accent-color)] mb-2">5+</div>
+                        <div class="text-[var(--text-secondary)]">Years Experience</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-[var(--accent-color)] mb-2">50+</div>
+                        <div class="text-[var(--text-secondary)]">Projects Completed</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-[var(--accent-color)] mb-2">20+</div>
+                        <div class="text-[var(--text-secondary)]">Happy Clients</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-[var(--accent-color)] mb-2">100%</div>
+                        <div class="text-[var(--text-secondary)]">Commitment</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-
-    <footer class="bg-gray-900 text-gray-400 py-4">
-      <div class="container mx-auto px-4 text-center">
-        <p>
-          &copy; 2025 All Rights Reserved to Alien Zeus | Developed by —<a
-            target="_blank"
-            href="https://www.facebook.com/dabaa333/"
-            >DABAA Web Services</a
-          >
-        </p>
-      </div>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 hero-text">Skills & Technologies</h2>
+                <div class="w-24 h-1 bg-[var(--accent-color)] mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 0s;">
+                    <i class="fab fa-html5 text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">HTML5</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 0.2s;">
+                    <i class="fab fa-css3-alt text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">CSS3</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 0.4s;">
+                    <i class="fab fa-js-square text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">JavaScript</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 0.6s;">
+                    <i class="fab fa-react text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">React</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 0.8s;">
+                    <i class="fab fa-node-js text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">Node.js</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 1s;">
+                    <i class="fas fa-database text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">MongoDB</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 1.2s;">
+                    <div class="text-4xl text-[var(--accent-color)] mb-4 font-bold">N</div>
+                    <div class="font-semibold">Next.js</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 1.4s;">
+                    <i class="fab fa-git-alt text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">Git</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 1.6s;">
+                    <i class="fas fa-code text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">C/C++</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 1.8s;">
+                    <i class="fas fa-wind text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">Tailwind</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 2s;">
+                    <i class="fas fa-file-excel text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">MS Office</div>
+                </div>
+                
+                <div class="skill-card glass-effect p-6 rounded-xl text-center floating-skill" style="animation-delay: 2.2s;">
+                    <i class="fas fa-tasks text-4xl text-[var(--accent-color)] mb-4"></i>
+                    <div class="font-semibold">Project Mgmt</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 hero-text">Featured Projects</h2>
+                <div class="w-24 h-1 bg-[var(--accent-color)] mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card glass-effect rounded-2xl overflow-hidden">
+                    <img src="2.jpg" alt="Zakat Diary" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-[var(--accent-color)]">Zakat Diary</h3>
+                        <p class="text-[var(--text-secondary)] mb-4">
+                            Responsive e-commerce bookshop landing page with modern design and user-friendly interface.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">HTML</span>
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">CSS</span>
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">JavaScript</span>
+                        </div>
+                        <a href="https://zakat-diary.vercel.app/" target="_blank" class="inline-flex items-center text-[var(--accent-color)] hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card glass-effect rounded-2xl overflow-hidden">
+                    <img src="1.jpg" alt="DABAA Billing System" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-[var(--accent-color)]">DABAA Billing System</h3>
+                        <p class="text-[var(--text-secondary)] mb-4">
+                            Complete billing application for businesses with advanced features and secure authentication.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">JavaScript</span>
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">HTML</span>
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">CSS</span>
+                        </div>
+                        <a href="https://dabaa.zoomenterprisebd.com/" target="_blank" class="inline-flex items-center text-[var(--accent-color)] hover:underline">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card glass-effect rounded-2xl overflow-hidden">
+                    <img src="3.jpg" alt="Achieve Operations" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-[var(--accent-color)]">Achieve Operations</h3>
+                        <p class="text-[var(--text-secondary)] mb-4">
+                            OneStop portal for daily task management with clean interface and productivity features.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">HTML</span>
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">CSS</span>
+                            <span class="px-3 py-1 bg-[var(--accent-color)] bg-opacity-20 rounded-full text-xs text-[var(--accent-color)]">Private</span>
+                        </div>
+                        <span class="text-[var(--text-secondary)] text-sm">Confidential Project</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 hero-text">Work Experience</h2>
+                <div class="w-24 h-1 bg-[var(--accent-color)] mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[var(--accent-color)] opacity-30"></div>
+                    
+                    <!-- Experience Items -->
+                    <div class="space-y-12">
+                        <div class="flex items-center relative">
+                            <div class="w-1/2 pl-8">
+                                <div class="glass-effect p-6 rounded-xl">
+                                    <img src="ezionic.png" alt="Ezionic" class="w-20 mx-auto mb-4">
+                                    <h3 class="font-bold text-[var(--accent-color)]">Operations Executive</h3>
+                                    <p class="text-sm text-[var(--text-secondary)]">Ezionic</p>
+                                    <p class="text-sm text-[var(--text-secondary)]">2025 - Current</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center relative">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="glass-effect p-6 rounded-xl">
+                                    <img src="apars.png" alt="APAR'S" class="w-20 mx-auto mb-4">
+                                    <h3 class="font-bold text-[var(--accent-color)]">Jr. Executive (Operations)</h3>
+                                    <p class="text-sm text-[var(--text-secondary)]">APAR'S</p>
+                                    <p class="text-sm text-[var(--text-secondary)]">2024 - Current</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[var(--accent-color)] rounded-full"></div>
+                            <div class="w-1/2 pl-8">
+                                <p class="text-[var(--text-secondary)]">
+                                    Service provider for Bangladesh EdTech Market, working with ACS Group and ACHIEVE operations.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center relative">
+                            <div class="w-1/2 pr-8 text-right">
+                                <p class="text-[var(--text-secondary)]">
+                                    Founded and leading a multiservices startup providing web development and digital solutions.
+                                </p>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[var(--accent-color)] rounded-full"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="glass-effect p-6 rounded-xl">
+                                    <img src="dabaa.png" alt="DABAA" class="w-20 mx-auto mb-4">
+                                    <h3 class="font-bold text-[var(--accent-color)]">Founder & CEO</h3>
+                                    <p class="text-sm text-[var(--text-secondary)]">DABAA</p>
+                                    <p class="text-sm text-[var(--text-secondary)]">2024 - Current</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 hero-text">Let's Connect</h2>
+                <div class="w-24 h-1 bg-[var(--accent-color)] mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-[var(--accent-color)]">Get In Touch</h3>
+                    <p class="text-[var(--text-secondary)] mb-8">
+                        Ready to start your next project? Let's discuss how we can work together 
+                        to create something amazing.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-[var(--accent-color)]"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Email</div>
+                                <div class="text-[var(--text-secondary)]">contact@alienzeus.dev</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-[var(--accent-color)]"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">WhatsApp</div>
+                                <div class="text-[var(--text-secondary)]">+8801710741250</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-[var(--accent-color)]"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Location</div>
+                                <div class="text-[var(--text-secondary)]">Dhaka, Bangladesh</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://www.facebook.com/alienzeus/" target="_blank" class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center hover:bg-[var(--accent-color)] hover:text-white transition-all">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://wa.me/+8801710741250" target="_blank" class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center hover:bg-[var(--accent-color)] hover:text-white transition-all">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alienzeus/" target="_blank" class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center hover:bg-[var(--accent-color)] hover:text-white transition-all">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.github.com/alienzeus" target="_blank" class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center hover:bg-[var(--accent-color)] hover:text-white transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@alienzeus/" target="_blank" class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center hover:bg-[var(--accent-color)] hover:text-white transition-all">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://x.com/moyurponkhy" target="_blank" class="w-12 h-12 bg-[var(--accent-color)] bg-opacity-20 rounded-full flex items-center justify-center hover:bg-[var(--accent-color)] hover:text-white transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="glass-effect p-8 rounded-2xl">
+                    <form action="https://formspree.io/f/mnnjqqgv" method="POST" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Your Name</label>
+                            <input type="text" name="name" required class="w-full p-4 bg-[var(--secondary-bg)] border border-[var(--accent-color)] border-opacity-30 rounded-lg focus:outline-none focus:border-[var(--accent-color)] transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email Address</label>
+                            <input type="email" name="email" required class="w-full p-4 bg-[var(--secondary-bg)] border border-[var(--accent-color)] border-opacity-30 rounded-lg focus:outline-none focus:border-[var(--accent-color)] transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Subject</label>
+                            <input type="text" name="subject" class="w-full p-4 bg-[var(--secondary-bg)] border border-[var(--accent-color)] border-opacity-30 rounded-lg focus:outline-none focus:border-[var(--accent-color)] transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Message</label>
+                            <textarea name="message" rows="5" required class="w-full p-4 bg-[var(--secondary-bg)] border border-[var(--accent-color)] border-opacity-30 rounded-lg focus:outline-none focus:border-[var(--accent-color)] transition-all resize-none"></textarea>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <button type="reset" class="flex-1 py-3 border-2 border-red-500 text-red-500 rounded-lg font-semibold hover:bg-red-500 hover:text-white transition-all">
+                                Clear
+                            </button>
+                            <button type="submit" class="flex-1 py-3 bg-[var(--accent-color)] text-white rounded-lg font-semibold hover:bg-opacity-80 transition-all transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 glass-effect">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="text-xl font-bold code-font hero-text">
+                        &lt;ALIEN ZEUS /&gt;
+                    </div>
+                </div>
+                
+                <div class="text-[var(--text-secondary)]">
+                    © 2025 All Rights Reserved | Developed by 
+                    <a href="https://www.facebook.com/dabaa333/" target="_blank" class="text-[var(--accent-color)] hover:underline">
+                        DABAA Web Services
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
-    <!-- <script>
-      // JavaScript to toggle the mobile menu
-      const menuButton = document.getElementById("menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
 
-      menuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    </script> -->
-    <script src="script.js"></script>
-  </body>
-
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        const body = document.body;
+        
+        // Check for saved theme or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', currentTheme);
+        
+        function toggleTheme() {
+            const theme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+        
+        // Scroll Indicator
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / documentHeight) * 100;
+            scrollIndicator.style.transform = `scaleX(${scrollPercent / 100})`;
+        });
+        
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Intersection Observer for Section Reveals
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section-reveal').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Typing Animation
+        const typingElement = document.querySelector('.typing-animation');
+        const texts = ['Full Stack Developer', 'Frontend Developer', 'Backend Developer', 'UI/UX Designer'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+            
+            const typeSpeed = isDeleting ? 50 : 100;
+            setTimeout(typeText, typeSpeed);
+        }
+        
+        // Start typing animation
+        setTimeout(typeText, 1000);
+        
+        // Form Submission Success Message
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            // Show success message (you can customize this)
+            setTimeout(() => {
+                alert('Message sent successfully! I\'ll get back to you soon.');
+            }, 500);
+        });
+        
+        // Parallax Effect for Background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxBg = document.querySelector('.parallax-bg');
+            const speed = scrolled * 0.5;
+            parallaxBg.style.transform = `translateY(${speed}px) rotate(${scrolled * 0.1}deg)`;
+        });
+        
+        // Add cursor trail effect
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.style.position = 'fixed';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.width = '10px';
+            cursor.style.height = '10px';
+            cursor.style.background = 'var(--accent-color)';
+            cursor.style.borderRadius = '50%';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.opacity = '0.6';
+            cursor.style.zIndex = '9999';
+            cursor.style.animation = 'cursorFade 1s ease-out forwards';
+            
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                cursor.remove();
+            }, 1000);
+        });
+        
+        // Add cursor fade animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes cursorFade {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
 </html>
